@@ -1,3 +1,7 @@
+
+mod tracer;
+
+use tracer::Vec3;
 use std::fs::File;
 use std::io::Write;
 
