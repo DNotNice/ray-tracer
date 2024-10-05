@@ -1,6 +1,8 @@
 use core::fmt;
 use std::ops::{Add, Div, Mul, Neg, Sub} ;
 
+pub type Colour = Vec3;
+
 #[derive(Clone, Copy, Default)]
 pub struct Vec3{
     pub x : f64,
@@ -28,11 +30,11 @@ impl Vec3{
         let length = self.length();
         Vec3::new(self.x/length , self.y/length , self.z /length)
     }
-    pub fn write_colour(self) {
-        let i_r = (256.0*self.x).round() as u8;
-        let i_g = (256.0*self.y).round() as u8;
-        let i_b = (256.0*self.z).round() as u8;
-        print!("{} {} {}\n", i_r, i_g, i_b)
+    pub fn write_colour(self)  {
+        let i_r = (255.999 * self.x).round() as u16;
+        let i_g = (255.999 * self.y).round() as u16;
+        let i_b = (255.999 * self.z).round() as u16;
+        print!("{} {} {}\n", i_r, i_g, i_b);
     }
     pub fn cross(mut self, other: Vec3) -> Vec3 {
         Vec3 {
